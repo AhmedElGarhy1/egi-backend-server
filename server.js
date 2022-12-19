@@ -6,6 +6,11 @@ const { connect } = require("mongoose");
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
+
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

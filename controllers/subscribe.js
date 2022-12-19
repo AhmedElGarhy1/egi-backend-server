@@ -2,8 +2,10 @@ const Subscriber = require("../models/subscribe");
 
 const addSubscriber = async (req, res) => {
   const { email, name } = req.body;
+  console.log(email, name);
   try {
     const isExist = await Subscriber.findOne({ email, name });
+    console.log(!!!isExist);
     if (isExist)
       return res.status(200).json({ msg: "You're already a subscriber 💝" });
 
