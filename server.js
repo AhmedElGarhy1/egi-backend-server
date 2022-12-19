@@ -41,3 +41,5 @@ connect(process.env.MONGO_API, () => {
     console.log(`listening at port ${port}`);
   });
 });
+
+console.log(process.env.MONGO_API);
