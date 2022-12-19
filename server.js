@@ -20,12 +20,12 @@ app.use(bodyParser.json());
 const subscribeRoutes = require("./routes/subscribe");
 const messageRoutes = require("./routes/message");
 
-// middleware
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
+// middleware;
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(express.static("public"));
 
@@ -41,5 +41,3 @@ connect(process.env.MONGO_API, () => {
     console.log(`listening at port ${port}`);
   });
 });
-
-console.log(process.env.MONGO_API);
