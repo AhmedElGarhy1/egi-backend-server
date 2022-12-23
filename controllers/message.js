@@ -19,14 +19,14 @@ const addMessage = async (req, res) => {
     if (!isExist) await Subscriber.create({ name, email, phone });
     else await Subscriber.updateOne({ email, name }, { $set: { phone } });
 
-    res
-      .status(200)
-      .send(`<script>window.location.pathname = "/thanks"</script>`);
+    res.status(200).json({ msg: "Your Message is under review" });
   } catch (err) {
     console.log(err);
     res
       .status(400)
-      .send(`<script>window.location.pathname = "/error"</script>`);
+      .json({
+        msg: "Sorry, Something happened Please check your Information again",
+      });
   }
 };
 
